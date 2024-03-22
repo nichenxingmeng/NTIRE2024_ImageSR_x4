@@ -31,10 +31,16 @@ def select_model(args, device):
         # model.load_state_dict(torch.load(model_path), strict=True)
 
         # DAT baseline, ICCV 2023
-        from models.team00_DAT import DAT
-        name, data_range = f"{model_id:02}_DAT_baseline", 1.0
-        model_path = os.path.join('model_zoo', 'team00_dat.pth')
-        model = DAT()
+        # from models.team00_DAT import DAT
+        # name, data_range = f"{model_id:02}_DAT_baseline", 1.0
+        # model_path = os.path.join('model_zoo', 'team00_dat.pth')
+        # model = DAT()
+        # model.load_state_dict(torch.load(model_path), strict=True)
+
+        from models.team12_HFT import HAT
+        name, data_range = f"{model_id:02}_HFT_baseline", 1.0
+        model_path = os.path.join('model_zoo', 'team12_HFT.pth')
+        model = HAT()
         model.load_state_dict(torch.load(model_path), strict=True)
     else:
         raise NotImplementedError(f"Model {model_id} is not implemented.")
